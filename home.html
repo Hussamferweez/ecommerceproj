@@ -1,0 +1,81 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Home Page
+-->
+<!DOCTYPE html>
+<html lang="{{ html_lang }}" dir="{{ html_dir }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ content.html_title }}</title>
+  
+  {% if site_settings.favicon_src %}
+    <link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />
+  {% endif %}
+  
+  {{ standard_header_includes }}
+  
+  <link rel="stylesheet" href="{{ get_asset_url('../css/theme.css') }}">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="portfolio-template">
+  
+  <div class="body-wrapper portfolio-main-content">
+    
+    {% module "hero_banner" 
+      path="../modules/hero-banner.module",
+      label="Hero Banner",
+      hero_image={
+        "src": "",
+        "alt": "Hussam Ayman photo"
+      },
+      headline="Hussam Ayman",
+      bio="<p><strong>Backend Developer</strong></p><p>Designing scalable and secure system architectures | Building high-performance backends | Optimizing workflows</p>",
+      cta_link={
+        "url": {
+          "href": "#contact",
+          "type": "EXTERNAL"
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      },
+      cta_text="Get In Touch"
+    %}
+    
+    {% module "skills_grid" 
+      path="../modules/skills-grid.module",
+      label="Skills Grid",
+      skills_title="My Skills"
+    %}
+    
+    {% module "project_cards" 
+      path="../modules/project-cards.module",
+      label="Project Showcase",
+      projects_title="My Projects"
+    %}
+    
+    {% module "simple_contact" 
+      path="../modules/simple-contact.module",
+      label="Contact & Footer",
+      contact_title="Get In Touch"
+    %}
+    
+  </div>
+  
+  <script src="{{ get_asset_url('../js/theme.js') }}"></script>
+  
+  {{ standard_footer_includes }}
+  
+</body>
+</html>
